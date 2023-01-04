@@ -37,7 +37,7 @@ jobs:
       # run tests!
       - run: 
           name: Cypress tests
-          command: yarn test:replay
+          command: yarn test:replay --browser "Replay Chromium"
           environment: 
             RECORD_REPLAY_METADATA_FILE: $(mktemp) 
             CYPRESS_NO_COMMAND_LOG: 1 
