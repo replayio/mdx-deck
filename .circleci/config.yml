@@ -35,7 +35,12 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run: yarn test:replay
+      - run: 
+        name: Cypress tests
+        command: yarn test:replay
+        environment: 
+          RECORD_REPLAY_METADATA_FILE: $(mktemp) 
+          CYPRESS_NO_COMMAND_LOG: 1 
 
       # add metadata
       - run: npx @replayio/replay metadata --init --keys source --warn
