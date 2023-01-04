@@ -35,4 +35,15 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run: yarn test
+      - run: RECORD_REPLAY_METADATA_FILE=$(mktemp) yarn test:replay
+
+      # add metadata
+      - run: npx @replayio/replay metadata --init --keys source --warn
+
+      # upload tests
+      - run: npx @replayio/replay upload-all --api-key rwk_ucBwGNuTjOIltJmr3oYzZ7TfTbpDyD9IHCoqvMUGaHQ
+      
+
+# update run command
+# env vars
+# upload tests...
