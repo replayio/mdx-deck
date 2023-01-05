@@ -12,9 +12,11 @@
     "export": "./packages/export/cli.js http://localhost:8000/print -o docs/public/deck.pdf",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
+    "cypress:run:replay": "cypress run --browser 'Replay Chromium'",
     "test:dev": "start-server-and-test start http://localhost:8000 cypress:open",
     "jest": "jest",
-    "test": "jest && start-server-and-test start http://localhost:8000 cypress:run"
+    "test":         "jest && start-server-and-test start http://localhost:8000 cypress:run",
+    "test:replay":  "jest && start-server-and-test start http://localhost:8000 cypress:run:replay"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
@@ -22,7 +24,7 @@
     "@babel/preset-react": "^7.8.3",
     "@replayio/cypress": "^0.4.6",
     "@testing-library/react": "^10.0.2",
-    "cypress": "^4.3.0",
+    "cypress": "^7.0.0",
     "husky": "^4.2.1",
     "jest": "^25.1.0",
     "jest-emotion": "^10.0.27",
