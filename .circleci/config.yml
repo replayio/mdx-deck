@@ -40,8 +40,7 @@ jobs:
           command: yarn test:replay 
           environment: 
             RECORD_REPLAY_METADATA_FILE: $(mktemp) 
-            CYPRESS_NO_COMMAND_LOG: 1 
-            CYPRESS_BROWSER: "Replay Chromium"
+            CYPRESS_NO_COMMAND_LOG: 1
 
       # add metadata
       - run: npx @replayio/replay metadata --init --keys source --warn
